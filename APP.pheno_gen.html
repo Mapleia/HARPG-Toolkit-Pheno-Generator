@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Random Horse Color Generator</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="Script1.js"></script>
+    <script>
+        $(function () {
+            $("#tabs").tabs();
+        });
+
+        $(function () {
+            $("#accordion").accordion({
+                collapsible: true,
+                heightStyle: "content"
+            });
+        });
+
+        $(function () {
+            $(".widget button").button();
+        });
+
+        function numgeneDIVHIDER() {
+            var typeCHOOSE = document.getElementById("typeCHOOSE");
+            var rangeCHOOSE = document.getElementById("rangeCHOOSE");
+            var surpriseCHOOSE = document.getElementById("surpriseCHOOSE");
+
+            if (typeCHOOSE.checked == true) {
+                document.getElementById("TYPEGENE").style.display = "block";
+                document.getElementById("RANGEGENE").style.display = "none";
+            }
+            else if (rangeCHOOSE.checked == true) {
+                document.getElementById("RANGEGENE").style.display = "block";
+                document.getElementById("TYPEGENE").style.display = "none";
+            }
+            else if (surpriseCHOOSE.checked == true) {
+                document.getElementById("RANGEGENE").style.display = "none";
+                document.getElementById("TYPEGENE").style.display = "none";
+            }
+        }
+
+        function toggle(name, source) {
+            checkboxes = document.getElementsByName(name);
+            for (var i = 0, n = checkboxes.length; i < n; i++) {
+                checkboxes[i].checked = source.checked;
+            }
+        }</script>
+</head>
+<body>
+    <h2>Random Horse Color Generator</h2>
+    <div id="tabs">
+        <ul>
+            <li><a href="#TAB1">Full Custom</a></li>
+            <li><a href="#TAB2">Vague Ideas</a></li>
+            <li><a href="#TAB3">Full Random</a></li>
+        </ul>
+        <div id="TAB1">
+            <div id="accordion">
+                <h3>Chimera & Number of Possible Genes</h3>
+                <div>
+                    <label for="chimera">Chimera</label>
+                    <input type="checkbox" id="chimera" /><br>
+                    <br>
+                    <label for="typeCHOOSE">I'd like to choose a type.</label>
+                    <input type="radio" name="numgene" id="typeCHOOSE" value="type" onclick="numgeneDIVHIDER()" /><br>
+                    <div id="TYPEGENE" style="display:none">
+                        <label for="plain">Plain (0-1 genes)</label>
+                        <input type="radio" name="typeGENE" id="plain" value="plain" /><br>
+                        <label for="simple">Simple (2-4 genes)</label>
+                        <input type="radio" name="typeGENE" id="simple" value="simple" /><br>
+                        <label for="medium">Medium (5-8 genes)</label>
+                        <input type="radio" name="typeGENE" id="medium" value="medium" /><br>
+                        <label for="genobomb">Genobomb (9-max)</label>
+                        <input type="radio" name="typeGENE" id="genobomb" value="genobomb" /><br>
+                        <br>
+                    </div>
+                    <label for="rangeCHOOSE">I'd like to choose a custom range.</label>
+                    <input type="radio" name="numgene" id="rangeCHOOSE" value="range" onclick="numgeneDIVHIDER()" /><br>
+                    <div id="RANGEGENE" style="display:none">
+                        <script>
+                            $(function () {
+                                $("#slider-range").slider(
+                                    {
+                                        range: true,
+                                        min: 0,
+                                        max: 17,
+                                        values: [3, 5],
+                                        slide: function (event, ui) {
+                                            $("#amount").val(ui.values[0] + " gene(s) - " + ui.values[1] + " genes");
+                                        }
+                                    }
+                                );
+                                $("#amount").val($("#slider-range").slider("values", 0) + " gene(s) - " + $("#slider-range").slider("values", 1) + " genes");
+                            });
+                        </script>
+                        <p>
+                            <label for="amount">Gene range:</label>
+                            <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+                        </p>
+                        <div id="slider-range"></div>
+                        <br>
+                    </div>
+                    <label for="surpriseCHOOSE">Surprise me! (I don't care)</label>
+                    <input type="radio" name="numgene" id="surpriseCHOOSE" value="surprise" onclick="numgeneDIVHIDER()" /><br>
+                </div>
+
+                <h3>Pick Your Potential Bases</h3>
+                <div>
+                    <label for="baseALL">Select all</label>
+                    <input type="checkbox" name="BASE" id="baseALL" onclick="toggle('BASE', this)" /><br>
+
+                    <label for="blackBASE">Black Based</label>
+                    <input type="checkbox" name="BASE" id="blackBASE" value="Ee aa " /><br>
+                    <label for="bayBASE">Bay Based</label>
+                    <input type="checkbox" name="BASE" id="bayBASE" value="Ee Aa " /><br>
+                    <label for="chestnutBASE">Chestnut Based</label>
+                    <input type="checkbox" name="BASE" id="chestnutBASE" value="ee aa " /><br>
+                    <label for="sealbayBASE">Seal Bay Based</label>
+                    <input type="checkbox" name="BASE" id="sealbayBASE" value="Ee Ata " /><br>
+                    <label for="wildbayBASE">Wild Bay Based</label>
+                    <input type="checkbox" name="BASE" id="wildbayBASE" value="Ee A+a " /><br>
+                </div>
+
+                <h3>Pick Your Potential Dilutes</h3>
+                <div>
+                    <label for="diluteALL">Select All</label>
+                    <input type="checkbox" name="DILUTE" id="diluteALL" onclick="toggle('DILUTE', this)" /><br>
+
+                    <label for="singleCREAM">Single Cream (nCr)</label>
+                    <input type="checkbox" name="DILUTE" id="singleCREAM" value="nCr " /><br>
+                    <label for="doubleCREAM">Double Cream (CrCr)</label>
+                    <input type="checkbox" name="DILUTE" id="doubleCREAM" value="CrCr " /><br>
+                    <label for="pearl">Pearl</label>
+                    <input type="checkbox" name="DILUTE" id="pearl" value="prlprl " /><br>
+                    <label for="champagne">Champagne</label>
+                    <input type="checkbox" name="DILUTE" id="champagne" value="nCh " /><br>
+                    <label for="dun">Dun</label>
+                    <input type="checkbox" name="DILUTE" id="dun" value="nD " /><br>
+                </div>
+
+                <h3>Pick Your Potential White Patterns</h3>
+                <div>
+                    <label for="wpALL">Select All</label>
+                    <input type="checkbox" name="WHITEPATTERN" id="wpALL" onclick="toggle('WHITEPATTERN', this)" /><br>
+
+                    <label for="overo">Overo</label>
+                    <input type="checkbox" name="WHITEPATTERN" id="overo" value="nO " /><br>
+                    <label for="tobiano">Tobiano</label>
+                    <input type="checkbox" name="WHITEPATTERN" id="tobiano" value="nTb " /><br>
+                    <label for="sabino">Sabino</label>
+                    <input type="checkbox" name="WHITEPATTERN" id="sabino" value="nSb " /><br>
+                    <label for="rabicano">Rabicano</label>
+                    <input type="checkbox" name="WHITEPATTERN" id="rabicano" value="nRb " /><br>
+                    <label for="splash">Splash</label>
+                    <input type="checkbox" name="WHITEPATTERN" id="splash" value="nSpl " /><br>
+                </div>
+
+                <h3>Pick Your Potential Leopard Complex Patterns</h3>
+                <div>
+                    <label for="lpALL">Select All</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="lpALL" onclick="toggle('LPCOMPLEX', this)" /><br>
+
+                    <label for="lpapp">Leopard Appaloosa</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="lpapp" value="nLp (PATN1) " /><br>
+                    <label for="sbapp">Spotted Blanket Appaloosa</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="sbapp" value="nLp (PATN2) " /><br>
+                    <label for="frapp">Frosted Appaloosa</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="frapp" value="nLp (snow) " /><br>
+                    <label for="vnrn">Varnish Roan</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="vnrn" value="nLp (roan) " /><br>
+                    <label for="fsapp">Fewspot Appaloosa</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="fsapp" value="LpLp (PATN1) " /><br>
+                    <label for="scapp">Snowcap Appaloosa</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="scapp" value="LpLp (PATN2) " /><br>
+                    <label for="snfapp">Snowflake Appaloosa</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="snfapp" value="LpLp (snow) " /><br>
+                    <label for="smlpapp">Semi Leopard Appaloosa</label>
+                    <input type="checkbox" name="LPCOMPLEX" id="smlpapp" value="LpLp (PATN1PATN2) " /><br>
+                </div>
+
+                <h3>Pick Your Potential Mane and Tail Diluters</h3>
+                <div>
+                    <label for="hairALL">Select All</label>
+                    <input type="checkbox" name="HAIRDILUTE" id="hairALL" onclick="toggle('HAIRDILUTE', this)" /><br>
+
+                    <label for="flaxen">Flaxen</label>
+                    <input type="checkbox" name="HAIRDILUTE" id="flaxen" value="ff " /><br>
+                    <label for="silver">Silver</label>
+                    <input type="checkbox" name="HAIRDILUTE" id="silver" value="nZ " /><br>
+                </div>
+
+                <h3>Pick Your Potential Miscellaneous Genes</h3>
+                <div>
+                    <label for="miscALL">Select All</label>
+                    <input type="checkbox" name="MISCGENE" id="miscALL" onclick="toggle('MISCGENE', this)" /><br>
+
+                    <label for="domw">Dominant White</label>
+                    <input type="checkbox" name="MISCGENE" id="domw" value="nW " /><br>
+                    <label for="grey">Grey</label>
+                    <input type="checkbox" name="MISCGENE" id="grey" value="nG " /><br>
+                    <label for="sooty">Sooty</label>
+                    <input type="checkbox" name="MISCGENE" id="sooty" value="nSty " /><br>
+                    <label for="roan">Roan</label>
+                    <input type="checkbox" name="MISCGENE" id="roan" value="nRn " /><br>
+                    <label for="pang">Pangare</label>
+                    <input type="checkbox" name="MISCGENE" id="pang" value="nPng " /><br>
+                </div>
+
+                <h3>Random Traits</h3>
+                <div>
+                    <label for="randtraitALL">Select All</label>
+                    <input type="checkbox" name="randTRAIT" id="randtraitALL" onclick="toggle('randTRAIT', this)" /><br>
+
+                    <label for="Brindle">Brindle</label>
+                    <input type="checkbox" name="randTRAIT" id="Brindle" value="with Brindle " /><br>
+                    <label for="Birdcatcher">Birdcatcher Spots</label>
+                    <input type="checkbox" name="randTRAIT" id="Birdcatcher" value="with Birdcatcher Spots " /><br>
+                    <label for="BendOr">Bend 'Or Spots</label>
+                    <input type="checkbox" name="randTRAIT" id="BendOr" value="with Bend 'Or Spots " /><br>
+                    <label for="Vitiligo">Vitiligo</label>
+                    <input type="checkbox" name="randTRAIT" id="Vitiligo" value="with Vitiligo " /><br>
+                    <label for="Lacing">Lacing</label>
+                    <input type="checkbox" name="randTRAIT" id="Lacing" value="with Lacing " /><br>
+                    <label for="Manchado">Manchado</label>
+                    <input type="checkbox" name="randTRAIT" id="Manchado" value="with Manchado " /><br>
+                </div>
+
+                <h3>Results</h3>
+                <div id="result">
+                    <div class="widget">
+                        <button onclick="thegenerator()">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="TAB2">
+            <h3>Chimera & Number of Possible Genes</h3>
+            <div>
+                <label for="chimera">Chimera</label>
+                <input type="checkbox" id="chimera" /><br>
+
+                <label for="plain">Plain (0-1 genes)</label>
+                <input type="radio" name="typeGENE" id="plain" value="plain" /><br>
+                <label for="simple">Simple (2-4 genes)</label>
+                <input type="radio" name="typeGENE" id="simple" value="simple" /><br>
+                <label for="medium">Medium (5-8 genes)</label>
+                <input type="radio" name="typeGENE" id="medium" value="medium" /><br>
+                <label for="genobomb">Genobomb (9-max)</label>
+                <input type="radio" name="typeGENE" id="genobomb" value="genobomb" /><br>
+            </div>
+
+            <h3>Pick Your Potential Bases</h3>
+            <div>
+                <label for="2baseALL">Select all (If you'd like a surprise)</label>
+                <input type="checkbox" name="2BASE" id="2baseALL" onclick="toggle('2BASE', this)" /><br>
+
+                <label for="2blackBASE">Black Based</label>
+                <input type="checkbox" name="2BASE" id="2blackBASE" value="Ee aa " /><br>
+                <label for="2bayBASE">Bay Based</label>
+                <input type="checkbox" name="2BASE" id="2bayBASE" value="Ee Aa " /><br>
+                <label for="2chestnutBASE">Chestnut Based</label>
+                <input type="checkbox" name="2BASE" id="2chestnutBASE" value="ee aa " /><br>
+                <label for="2sealbayBASE">Seal Bay Based</label>
+                <input type="checkbox" name="2BASE" id="2sealbayBASE" value="Ee Ata " /><br>
+                <label for="2wildbayBASE">Wild Bay Based</label>
+                <input type="checkbox" name="2BASE" id="2wildbayBASE" value="Ee A+a " /><br>
+            </div>
+
+            <h3>Your Specifications</h3>
+            <div>
+                <label for=""></label>
+                <input type="checkbox" name="" id="" value="" /><br>
+            </div>
+
+            <h3>Results</h3>
+            <div id="result">
+                <div class="widget">
+                    <button onclick="myfunction()">Submit</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="TAB3">
+            <p>Nothing here yet.</p>
+        </div>
+    </div>
+</body>
+</html>
