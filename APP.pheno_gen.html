@@ -230,7 +230,7 @@
                 </div>
 
                 <h3>Results</h3>
-                <div id="result">
+                <div id="result1">
                     <div class="widget">
                         <button onclick="thegenerator()">Submit</button>
                     </div>
@@ -238,48 +238,51 @@
             </div>
         </div>
         <div id="TAB2">
-            <h3>Chimera & Number of Possible Genes</h3>
-            <div>
-                <label for="chimera">Chimera</label>
-                <input type="checkbox" id="chimera" /><br>
+            <div id="accordion">
 
-                <label for="plain">Plain (0-1 genes)</label>
-                <input type="radio" name="typeGENE" id="plain" value="plain" /><br>
-                <label for="simple">Simple (2-4 genes)</label>
-                <input type="radio" name="typeGENE" id="simple" value="simple" /><br>
-                <label for="medium">Medium (5-8 genes)</label>
-                <input type="radio" name="typeGENE" id="medium" value="medium" /><br>
-                <label for="genobomb">Genobomb (9-max)</label>
-                <input type="radio" name="typeGENE" id="genobomb" value="genobomb" /><br>
-            </div>
+                <h3>Chimera & Number of Possible Genes</h3>
+                <div>
+                    <label for="chimera">Chimera</label>
+                    <input type="checkbox" id="chimera" /><br>
 
-            <h3>Pick Your Potential Bases</h3>
-            <div>
-                <label for="2baseALL">Select all (If you'd like a surprise)</label>
-                <input type="checkbox" name="2BASE" id="2baseALL" onclick="toggle('2BASE', this)" /><br>
+                    <label for="plain">Plain (0-1 genes)</label>
+                    <input type="radio" name="typeGENE" id="plain" value="plain" /><br>
+                    <label for="simple">Simple (2-4 genes)</label>
+                    <input type="radio" name="typeGENE" id="simple" value="simple" /><br>
+                    <label for="medium">Medium (5-8 genes)</label>
+                    <input type="radio" name="typeGENE" id="medium" value="medium" /><br>
+                    <label for="genobomb">Genobomb (9-max)</label>
+                    <input type="radio" name="typeGENE" id="genobomb" value="genobomb" /><br>
+                </div>        
 
-                <label for="2blackBASE">Black Based</label>
-                <input type="checkbox" name="2BASE" id="2blackBASE" value="Ee aa " /><br>
-                <label for="2bayBASE">Bay Based</label>
-                <input type="checkbox" name="2BASE" id="2bayBASE" value="Ee Aa " /><br>
-                <label for="2chestnutBASE">Chestnut Based</label>
-                <input type="checkbox" name="2BASE" id="2chestnutBASE" value="ee aa " /><br>
-                <label for="2sealbayBASE">Seal Bay Based</label>
-                <input type="checkbox" name="2BASE" id="2sealbayBASE" value="Ee Ata " /><br>
-                <label for="2wildbayBASE">Wild Bay Based</label>
-                <input type="checkbox" name="2BASE" id="2wildbayBASE" value="Ee A+a " /><br>
-            </div>
+                <h3>Pick Your Potential Bases</h3>
+                <div>
+                    <label for="2baseALL">Select all (If you'd like a surprise)</label>
+                    <input type="checkbox" name="2BASE" id="2baseALL" onclick="toggle('2BASE', this)" /><br>
 
-            <h3>Your Specifications</h3>
-            <div>
-                <label for=""></label>
-                <input type="checkbox" name="" id="" value="" /><br>
-            </div>
+                    <label for="2blackBASE">Black Based</label>
+                    <input type="checkbox" name="2BASE" id="2blackBASE" value="Ee aa " /><br>
+                    <label for="2bayBASE">Bay Based</label>
+                    <input type="checkbox" name="2BASE" id="2bayBASE" value="Ee Aa " /><br>
+                    <label for="2chestnutBASE">Chestnut Based</label>
+                    <input type="checkbox" name="2BASE" id="2chestnutBASE" value="ee aa " /><br>
+                    <label for="2sealbayBASE">Seal Bay Based</label>
+                    <input type="checkbox" name="2BASE" id="2sealbayBASE" value="Ee Ata " /><br>
+                    <label for="2wildbayBASE">Wild Bay Based</label>
+                    <input type="checkbox" name="2BASE" id="2wildbayBASE" value="Ee A+a " /><br>
+                </div>
 
-            <h3>Results</h3>
-            <div id="result">
-                <div class="widget">
-                    <button onclick="myfunction()">Submit</button>
+                <h3>Your Specifications</h3>
+                <div>
+                    <label for=""></label>
+                    <input type="checkbox" name="" id="" value="" /><br>
+                </div>
+
+                <h3>Results</h3>
+                <div id="result2">
+                    <div class="widget">
+                        <button onclick="myfunction()">Submit</button>
+                    </div>
                 </div>
             </div>
         </div>

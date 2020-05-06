@@ -318,7 +318,7 @@ function thegenerator() {
         node = document.createTextNode(generatedPHENO + '// ' + generatedPHENO2 + 'Chimera');
     }
     para.appendChild(node);
-    var element = document.getElementById("result");
+    var element = document.getElementById("result1");
 
     element.appendChild(para);
 }
