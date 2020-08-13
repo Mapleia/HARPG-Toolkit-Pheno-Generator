@@ -1,7 +1,7 @@
-# HARPG-Breeding-Roller
-HARPG Breeding Roller used for ARPG (art role play game) on the platform DeviantArt. It is used to generate new foals (babies) based on the genotype (genetics) of the parents.
+# HARPG-Pheno-Generator
+HARPG Pheno Generator used for ARPG (art role play game) on the platform DeviantArt. It is used to generate new foals (babies) based on the perferred colours of the user.
 
-The RPG admin will input the sire (father) and the mare's (mother) genotype and the roller will spit out the foal's genotype (genetic code) and phenotype (readable translation). This is the barebone version (works with all realistic breeds) and does not include any extra HARPG breed specific "mutations" game mechanics. This is coded to generate 3 different variants. 
+Users can input and limit the number of genes included to be randomized, and choose to include or omit certain genes. The generator will follow the general HARPG standards when naming certain genetics combos. (For example, Tobiano (Tb) and Overo (O) will be named Tovero).
 
 There should be an HTML file (also includes light CSS) and the javascript file.
 
